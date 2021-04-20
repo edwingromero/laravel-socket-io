@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        Esto es un ejemplo de vue
                     </div>
                 </div>
             </div>
@@ -17,7 +17,10 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            window.Echo.channel('kobsa-tracker')
+            .listen('OrderStatusChangedEvent', (e) => {
+                console.log('resl time')
+            })
         }
     }
 </script>
