@@ -19,7 +19,7 @@
         mounted() {
             window.Echo.channel('kobsa-tracker')
             .listen('OrderStatusChangedEvent', (e) => {
-                console.log('resl time')
+                console.log(e.message)
             })
         }
     }

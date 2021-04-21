@@ -1864,7 +1864,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     window.Echo.channel('kobsa-tracker').listen('OrderStatusChangedEvent', function (e) {
-      console.log('resl time');
+      console.log(e.message);
     });
   }
 });
@@ -1950,8 +1950,10 @@ window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/d
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
   key: "6291dcd8fc9c5daca6c5",
-  cluster: "us2",
-  forceTLS: true
+  wsHost: window.location.hostname,
+  wsPort: 6001,
+  forceTLS: false,
+  disableStats: true
 });
 
 /***/ }),

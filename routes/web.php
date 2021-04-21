@@ -19,8 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/fire', function () {
-    event (new OrderStatusChangedEvent);
-    return 'fired';
+    event (new OrderStatusChangedEvent('Nuevo Mensaje'));
+    return 'evento ejecutado';
 });
 
 Auth::routes();
