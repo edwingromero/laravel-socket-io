@@ -3,10 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Example Component</div>
+                    <div class="card-header">SocketIO</div>
 
                     <div class="card-body">
-                        Esto es un ejemplo de vue
+                        {{message}}
                     </div>
                 </div>
             </div>
@@ -17,10 +17,17 @@
 <script>
     export default {
         mounted() {
+            let vue = this;
             window.Echo.channel('kobsa-tracker')
             .listen('OrderStatusChangedEvent', (e) => {
-                console.log(e.message)
+                vue.message = e.message;
             })
-        }
+        },
+
+        data() {
+            return {
+                message:''
+            }
+        },
     }
 </script>

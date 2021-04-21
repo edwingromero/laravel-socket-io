@@ -19,7 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/fire', function () {
-    event (new OrderStatusChangedEvent('Nuevo Mensaje'));
+    $mensaje = "Hola edwing ".date('H:i:s');
+    event (new OrderStatusChangedEvent($mensaje));
     return 'evento ejecutado';
 });
 
