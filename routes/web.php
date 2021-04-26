@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Events\OrderStatusChangedEvent;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,10 @@ Route::get('/fire', function () {
     event (new OrderStatusChangedEvent($mensaje));
     return 'evento ejecutado';
 });
+
+Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index']);
+Route::get('/messages', [App\Http\Controllers\ChatController::class, 'fetchMessages']);
+Route::post('/message', [App\Http\Controllers\ChatController::class, 'sendMessage']);
 
 Auth::routes();
 
